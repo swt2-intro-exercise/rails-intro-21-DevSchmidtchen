@@ -29,4 +29,15 @@ describe "New author page", type: :feature do
 
     expect(@author).to_not be_valid
   end
+
+  it "should show an error if form is invalid" do
+    visit new_author_path
+
+    page.fill_in 'author[first_name]', with: 'Alan'
+    page.fill_in 'author[homepage]', with: 'http://wikipedia.org/Alan_Turing'
+
+    find('input[type="submit"]').click
+
+    expect(page).to have_text("error")
+  end
 end
