@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def index
-    @authors = Author.year(params[:year])
+    @authors = Author.all
   end
 
   def show
