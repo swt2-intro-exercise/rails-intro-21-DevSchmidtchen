@@ -5,5 +5,7 @@ class Paper < ApplicationRecord
 
   has_and_belongs_to_many :authors
 
-  scope :year, ->(year) { where("year == ?", year) if year.present? }
+  def self.year(year)
+    where("year == ?", year) if year.present?
+  end
 end
